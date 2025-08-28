@@ -33,7 +33,7 @@ export default function NewFeaturesSection({
     },
     {
       title: 'Google Meet',
-      icon: <VideoCameraOutlined className="text-blue-500" />,
+      icon: <VideoCameraOutlined className="text-orange-500" />,
       description: 'Lên lịch và thông báo tự động trên Google Meet',
     },
   ]
