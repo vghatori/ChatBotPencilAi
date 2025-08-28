@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ChatBot Pencil AI - Dashboard Platform
 
-## Getting Started
+## 🏗️ **Cấu trúc Project**
 
-First, run the development server:
+### **📁 Components (src/components/)**
+Tất cả các component UI được tổ chức trong thư mục `src/components/`:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **`Sidebar.tsx`** - Thanh bên trái với navigation menu
+- **`Header.tsx`** - Thanh header phía trên (DashboardHeader)
+- **`TopBanner.tsx`** - Banner chính với thông tin page và CTA
+- **`TemplatesSection.tsx`** - Phần templates với 3 cards
+- **`GettingStartedSection.tsx`** - Phần hướng dẫn thiết lập bot
+- **`NewFeaturesSection.tsx`** - Phần tính năng mới
+- **`DashboardContent.tsx`** - Component tổ chức tất cả content
+- **`index.ts`** - File export tất cả components
+
+### **📁 Pages (src/app/)**
+- **`main/page.tsx`** - Dashboard page chính (đã đổi tên từ chat)
+- **`login/page.tsx`** - Trang đăng nhập
+- **`register/page.tsx`** - Trang đăng ký
+- **`homepage/page.tsx`** - Trang chủ
+
+## 🚀 **Cách sử dụng Components**
+
+### **Import từng component riêng lẻ:**
+```tsx
+import Sidebar from '../../components/Sidebar';
+import DashboardHeader from '../../components/Header';
+import DashboardContent from '../../components/DashboardContent';
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### **Import tất cả từ index:**
+```tsx
+import { Sidebar, DashboardHeader, TopBanner } from '../../components';
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 **Tính năng của từng Component**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### **Sidebar**
+- Props: `selectedKey` để highlight menu item
+- Navigation menu với 2 sections: Cơ bản & Nâng cao
+- Message usage progress bar
+- User profile section
 
-## Learn More
+### **Header**
+- Props: `pageTitle` và `notificationCount`
+- Logo và page title
+- Notifications bell với badge
+- Statistics button
 
-To learn more about Next.js, take a look at the following resources:
+### **TopBanner**
+- Props: `pageName`, `pageId`, `botLink`
+- Thông tin page và branding
+- CTA button "Trải nghiệm ngay"
+- Right panel với "Xem thêm"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **TemplatesSection**
+- Props: `templates` array
+- 3 template cards: Shop Online, Mã giảm giá, Bất động sản
+- Usage statistics cho mỗi template
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **GettingStartedSection**
+- Props: `setupSteps` và `onUnderstandClick`
+- 5 bước thiết lập bot
+- Button "Đã hiểu" với callback function
 
-## Deploy on Vercel
+### **NewFeaturesSection**
+- Props: `features` array
+- 3 tính năng mới: TikTok, Hotmart, Google Meet
+- Icons và mô tả cho mỗi tính năng
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ **Tech Stack**
+- **Next.js 15** - App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Utility-first styling
+- **Ant Design** - UI components
+- **Lucide React** - Icons
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 **Responsive Design**
+- Mobile-friendly layout
+- Flexible grid system với Ant Design Row/Col
+- Hover effects và transitions
+- Modern SaaS styling
+
+## 🔧 **Development**
+
+### **Install dependencies:**
+```bash
+npm install
+```
+
+### **Run development server:**
+```bash
+npm run dev
+```
+
+### **Build for production:**
+```bash
+npm run build
+```
+
+## 📝 **Notes**
+- Tất cả components đã được chuyển từ `src/app/chat/components/` sang `src/components/`
+- Folder `chat` đã được đổi tên thành `main`
+- Components có thể tái sử dụng ở nhiều pages khác nhau
+- TypeScript interfaces được định nghĩa cho tất cả props
