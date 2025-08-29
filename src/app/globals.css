@@ -51,32 +51,31 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: oklch(0.6 0.15 45); /* Orange 500 */
   --primary-foreground: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary-foreground: oklch(0.145 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --accent: oklch(0.95 0.08 45); /* Light orange */
+  --accent-foreground: oklch(0.145 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --ring: oklch(0.6 0.15 45); /* Orange ring */
+  --chart-1: oklch(0.6 0.15 45); /* Orange */
+  --chart-2: oklch(0.7 0.12 45); /* Light orange */
+  --chart-3: oklch(0.5 0.18 45); /* Dark orange */
+  --chart-4: oklch(0.8 0.1 45); /* Very light orange */
+  --chart-5: oklch(0.4 0.2 45); /* Very dark orange */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary: oklch(0.6 0.15 45); /* Orange primary */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent: oklch(0.95 0.08 45); /* Light orange accent */
+  --sidebar-accent-foreground: oklch(0.145 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: oklch(0.6 0.15 45); /* Orange ring */
 }
 
 .dark {
@@ -86,31 +85,31 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: oklch(0.7 0.12 45); /* Lighter orange for dark mode */
+  --primary-foreground: oklch(0.145 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.3 0.1 45); /* Darker orange accent */
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --ring: oklch(0.7 0.12 45); /* Orange ring for dark mode */
+  --chart-1: oklch(0.7 0.12 45); /* Orange */
+  --chart-2: oklch(0.8 0.1 45); /* Light orange */
+  --chart-3: oklch(0.6 0.15 45); /* Medium orange */
+  --chart-4: oklch(0.9 0.08 45); /* Very light orange */
+  --chart-5: oklch(0.5 0.18 45); /* Dark orange */
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary: oklch(0.7 0.12 45); /* Orange primary */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.3 0.1 45); /* Dark orange accent */
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: oklch(0.7 0.12 45); /* Orange ring */
 }
 
 @layer base {
@@ -183,28 +182,28 @@
   
   /* Menu item selection styles */
   .ant-menu-item-selected {
-    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
-    border-right: 3px solid #3b82f6 !important;
-    color: #1d4ed8 !important;
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.1) !important;
+    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%) !important;
+    border-right: 3px solid #f97316 !important;
+    color: #ea580c !important;
+    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.15) !important;
   }
   
   .ant-menu-item:hover {
-    background: rgba(59, 130, 246, 0.05) !important;
-    color: #1d4ed8 !important;
+    background: rgba(249, 115, 22, 0.08) !important;
+    color: #ea580c !important;
   }
   
   /* Section header styles */
   .sidebar-section-header {
-    color: #6b7280;
+    color: #ea580c;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 8px 12px;
     margin-bottom: 12px;
     border-radius: 8px;
-    background: rgba(243, 244, 246, 0.5);
-    border: 1px solid rgba(229, 231, 235, 0.5);
+    background: rgba(254, 215, 170, 0.3);
+    border: 1px solid rgba(251, 146, 60, 0.3);
   }
 }
 
@@ -410,5 +409,203 @@
       min-height: 44px;
       min-width: 44px;
     }
+  }
+}
+
+/* Sidebar Menu Item Hover Effects */
+.ant-menu-inline-collapsed .ant-menu-item {
+  margin: 4px auto !important; /* Căn giữa ô vuông */
+  padding: 0 !important;
+  height: 48px !important;
+  width: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  position: relative !important; /* Để căn giữa hoàn hảo */
+}
+
+/* Fix container để căn giữa hoàn hảo */
+.ant-menu-inline-collapsed {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.ant-menu-inline-collapsed .ant-menu-item:hover {
+  background: rgba(249, 115, 22, 0.15) !important; /* Màu đậm hơn khi hover */
+  color: #ea580c !important;
+}
+
+.ant-menu-inline-collapsed .ant-menu-item-selected {
+  background: rgba(249, 115, 22, 0.08) !important; /* Màu nhạt hơn khi selected */
+  color: #ea580c !important;
+  box-shadow: 0 1px 3px rgba(249, 115, 22, 0.1) !important;
+}
+
+.ant-menu-inline-collapsed .ant-menu-item .anticon {
+  font-size: 18px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important; /* Căn giữa hoàn hảo */
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important; /* Căn giữa chính xác */
+}
+
+/* Collapsed sidebar specific styles */
+.ant-layout-sider-collapsed {
+  width: 80px !important;
+}
+
+.ant-layout-sider-collapsed .sidebar-container {
+  width: 80px !important;
+}
+
+/* Message usage collapsed state */
+.message-usage-collapsed {
+  padding: 8px 6px !important;
+}
+
+.message-usage-collapsed .vertical-progress {
+  width: 10px !important;
+  height: 128px !important; /* Tăng từ 96px lên 128px (h-32) */
+}
+
+/* Vertical progress bar animation */
+.vertical-progress {
+  position: relative;
+  background: #fed7aa !important;
+  border-radius: 5px !important;
+}
+
+.vertical-progress > div {
+  border-radius: 5px !important;
+  animation: progressFillVertical 1.5s ease-out;
+}
+
+@keyframes progressFillVertical {
+  from {
+    height: 0%;
+  }
+  to {
+    height: 75%;
+  }
+}
+
+/* User profile collapsed state */
+.user-profile-collapsed {
+  padding: 8px 6px !important;
+  position: relative !important; /* For hover overlay positioning */
+}
+
+.user-profile-collapsed .ant-avatar {
+  width: 40px !important;
+  height: 40px !important;
+}
+
+/* Avatar hover overlay effect */
+.user-profile-collapsed:hover .ant-avatar {
+  transform: scale(1.05) !important;
+  transition: transform 0.2s ease !important;
+}
+
+/* Tooltip for collapsed menu items */
+.ant-tooltip {
+  z-index: 1001 !important;
+}
+
+.ant-tooltip-inner {
+  background-color: #1f2937 !important;
+  color: white !important;
+  font-size: 12px !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+}
+
+/* Fix tooltip positioning */
+.ant-tooltip-placement-right .ant-tooltip-arrow {
+  border-right-color: #1f2937 !important;
+}
+
+/* Ensure tooltip doesn't interfere with layout */
+.ant-tooltip-open {
+  pointer-events: none !important;
+}
+
+/* Fix menu item tooltip container */
+.ant-menu-inline-collapsed .ant-menu-item .anticon {
+  font-size: 18px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important; /* Căn giữa hoàn hảo */
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important; /* Căn giữa chính xác */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure tooltip container doesn't interfere with layout */
+.ant-menu-inline-collapsed .ant-menu-item .anticon > div {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Section headers - not selectable */
+.sidebar-section-header {
+  color: #6b7280 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  margin-bottom: 12px !important;
+  padding: 0 4px !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+/* Ensure section headers are never highlighted */
+.sidebar-section-header:hover,
+.sidebar-section-header:focus,
+.sidebar-section-header:active {
+  background: transparent !important;
+  color: #6b7280 !important;
+}
+
+/* Modern divider styling */
+.ant-divider {
+  border-color: #fed7aa !important;
+  opacity: 0.6 !important;
+}
+
+/* Smooth transitions for sidebar elements */
+.sidebar-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Fade in animation for expanded content */
+.sidebar-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }

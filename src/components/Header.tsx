@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Layout, Button, Badge, Typography, Tooltip } from 'antd';
-import { BellOutlined, BarChartOutlined, MenuOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { BellOutlined, BarChartOutlined, MenuOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
 const { Title } = Typography;
@@ -26,11 +26,11 @@ export default function DashboardHeader({
 }: HeaderProps) {
   return (
     <Header
-      className="bg-white border-b border-gray-200 px-4 lg:px-6 flex items-center justify-between shadow-sm"
+      className="bg-white border-b border-orange-100 px-4 lg:px-6 flex items-center justify-between shadow-sm"
       style={{
         background: 'white',
-        borderBottom: '1px solid #e5e7eb',
-        boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1)',
+        borderBottom: '1px solid #fed7aa',
+        boxShadow: '0 1px 3px 0 rgba(249, 115, 22, 0.1)',
         height: '64px',
         lineHeight: '64px',
       }}
@@ -41,25 +41,13 @@ export default function DashboardHeader({
           <Button
             type="text"
             icon={<MenuOutlined />}
-            className="lg:hidden text-gray-600 hover:text-gray-800 hover:bg-gray-100"
+            className="lg:hidden text-orange-600 hover:text-orange-700 hover:bg-orange-50"
             onClick={onMenuClick}
           />
         )}
         
-        {/* Desktop Sidebar Toggle */}
-        {!isMobile && onToggleSidebar && (
-          <Tooltip title={collapsed ? "Mở rộng sidebar" : "Thu gọn sidebar"}>
-            <Button
-              type="text"
-              icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-              className="hidden lg:flex text-gray-600 hover:text-gray-800 hover:bg-gray-100"
-              onClick={onToggleSidebar}
-            />
-          </Tooltip>
-        )}
-        
         {/* Logo */}
-        <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+        <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center shadow-md">
           <span className="text-white font-bold text-sm">AIP</span>
         </div>
         
@@ -76,7 +64,7 @@ export default function DashboardHeader({
             <Button
               type="text"
               icon={<BellOutlined />}
-              className="text-gray-600 hover:text-gray-800 hover:bg-gray-100"
+              className="text-orange-600 hover:text-orange-700 hover:bg-orange-50"
             />
           </Badge>
         </Tooltip>
@@ -86,7 +74,7 @@ export default function DashboardHeader({
           <Button
             type="text"
             icon={<BarChartOutlined />}
-            className="text-gray-600 hover:text-gray-800 hover:bg-gray-100 hidden sm:inline-flex"
+            className="text-orange-600 hover:text-orange-700 hover:bg-orange-50 hidden sm:inline-flex"
           >
             <span className="hidden sm:inline">Thống kê</span>
           </Button>

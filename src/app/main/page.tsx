@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React, { useState, useEffect } from 'react';
-import { Layout, Drawer, Button } from 'antd';
-import { MenuOutlined } from '@ant-design/icons';
-import Sidebar from '../../components/Sidebar';
-import DashboardHeader from '../../components/Header';
-import DashboardContent from '../../components/DashboardContent';
+import React, { useState, useEffect } from "react";
+import { Layout, Drawer, Button } from "antd";
+import { MenuOutlined } from "@ant-design/icons";
+import Sidebar from "../../components/Sidebar";
+import DashboardHeader from "../../components/Header";
+import DashboardContent from "../../components/DashboardContent";
 
 const { Content } = Layout;
 
@@ -19,7 +19,7 @@ export default function DashboardPage() {
     const checkMobile = () => {
       const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
-      
+
       // Auto-collapse sidebar on mobile
       if (mobile) {
         setCollapsed(true);
@@ -30,8 +30,8 @@ export default function DashboardPage() {
     };
 
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const handleCollapse = (collapsed: boolean) => {
@@ -54,22 +54,24 @@ export default function DashboardPage() {
     <Layout className="min-h-screen bg-gray-50">
       {/* Responsive Sidebar - Hidden on mobile, visible on desktop/tablet */}
       <div className="hidden lg:block sidebar-container">
-        <Sidebar 
-          selectedKey="home" 
+        <Sidebar
+          selectedKey="home"
           collapsed={collapsed}
           onCollapse={handleCollapse}
         />
       </div>
 
-      <Layout className={`main-content-container transition-all duration-300 ${collapsed ? 'lg:ml-20' : 'lg:ml-70'}`}>
+      <Layout
+        className={`main-content-container transition-all duration-300 ${
+          collapsed ? "lg:ml-20" : "lg:ml-70"
+        }`}
+      >
         {/* Header */}
         <DashboardHeader 
           pageTitle="Trang chủ" 
           notificationCount={3}
           onMenuClick={handleMobileMenu}
           isMobile={isMobile}
-          collapsed={collapsed}
-          onToggleSidebar={toggleSidebar}
         />
 
         {/* Main Content */}
@@ -95,14 +97,10 @@ export default function DashboardPage() {
         className="lg:hidden"
         styles={{
           body: { padding: 0 },
-          header: { padding: '16px 24px' }
+          header: { padding: "16px 24px" },
         }}
       >
-        <Sidebar 
-          selectedKey="home" 
-          collapsed={false}
-          isMobile={true}
-        />
+        <Sidebar selectedKey="home" collapsed={false} isMobile={true} />
       </Drawer>
     </Layout>
   );
