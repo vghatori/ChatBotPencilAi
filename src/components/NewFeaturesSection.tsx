@@ -31,11 +31,11 @@ export default function NewFeaturesSection({
       icon: <FireOutlined className="text-orange-500" />,
       description: 'Tự động hóa thông báo & tăng tương tác trên WABA',
     },
-    {
-      title: 'Google Meet',
-      icon: <VideoCameraOutlined className="text-orange-500" />,
-      description: 'Lên lịch và thông báo tự động trên Google Meet',
-    },
+         {
+       title: 'Google Meet',
+       icon: <VideoCameraOutlined className="text-purple-500" />,
+       description: 'Lên lịch và thông báo tự động trên Google Meet',
+     },
   ]
 }: NewFeaturesSectionProps) {
   return (

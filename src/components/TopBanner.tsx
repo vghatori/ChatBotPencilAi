@@ -26,9 +26,9 @@ export default function TopBanner({
             {/* Header Section - Responsive layout */}
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4 sm:mb-6 space-y-3 sm:space-y-0">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-yellow-400 rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-sm sm:text-lg font-bold text-gray-800">FIC</span>
-                </div>
+                                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center flex-shrink-0">
+                   <span className="text-sm sm:text-lg font-bold text-white">AIP</span>
+                 </div>
                 <div className="min-w-0">
                   <Title level={3} className="mb-1 text-base sm:text-lg lg:text-xl">{pageName}</Title>
                   <div className="text-xs sm:text-sm text-gray-600 truncate">Page ID: {pageId}</div>

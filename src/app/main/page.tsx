@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Layout, Drawer, Button } from "antd";
-import { MenuOutlined } from "@ant-design/icons";
+import { Layout, Drawer } from "antd";
 import Sidebar from "../../components/Sidebar";
 import DashboardHeader from "../../components/Header";
 import DashboardContent from "../../components/DashboardContent";
@@ -46,9 +45,7 @@ export default function DashboardPage() {
     setMobileOpen(false);
   };
 
-  const toggleSidebar = () => {
-    setCollapsed(!collapsed);
-  };
+
 
   return (
     <Layout className="min-h-screen bg-gray-50">
@@ -82,14 +79,14 @@ export default function DashboardPage() {
 
       {/* Mobile Drawer - Only for mobile devices */}
       <Drawer
-        title={
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-500 rounded-full flex items-center justify-center shadow-md">
-              <span className="text-sm font-bold text-white">AIP</span>
-            </div>
-            <span className="font-semibold text-gray-800">AI Pencil</span>
-          </div>
-        }
+                 title={
+           <div className="flex items-center space-x-3">
+             <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center shadow-md">
+               <span className="text-sm font-bold text-white">AIP</span>
+             </div>
+             <span className="font-semibold text-gray-800">AI Pencil</span>
+           </div>
+         }
         placement="left"
         onClose={closeMobileMenu}
         open={mobileOpen}
@@ -100,7 +97,7 @@ export default function DashboardPage() {
           header: { padding: "16px 24px" },
         }}
       >
-        <Sidebar selectedKey="home" collapsed={false} isMobile={true} />
+                 <Sidebar selectedKey="home" collapsed={false} />
       </Drawer>
     </Layout>
   );

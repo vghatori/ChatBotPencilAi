@@ -51,31 +51,31 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.6 0.15 45); /* Orange 500 */
+  --primary: oklch(0.6 0.25 300); /* Purple 500 */
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.145 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.95 0.08 45); /* Light orange */
+  --accent: oklch(0.95 0.15 320); /* Light pink */
   --accent-foreground: oklch(0.145 0 0);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.6 0.15 45); /* Orange ring */
-  --chart-1: oklch(0.6 0.15 45); /* Orange */
-  --chart-2: oklch(0.7 0.12 45); /* Light orange */
-  --chart-3: oklch(0.5 0.18 45); /* Dark orange */
-  --chart-4: oklch(0.8 0.1 45); /* Very light orange */
-  --chart-5: oklch(0.4 0.2 45); /* Very dark orange */
+  --ring: oklch(0.6 0.25 300); /* Purple ring */
+  --chart-1: oklch(0.6 0.25 300); /* Purple */
+  --chart-2: oklch(0.7 0.2 320); /* Light pink */
+  --chart-3: oklch(0.5 0.3 300); /* Dark purple */
+  --chart-4: oklch(0.8 0.15 320); /* Very light pink */
+  --chart-5: oklch(0.4 0.35 300); /* Very dark purple */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.6 0.15 45); /* Orange primary */
+  --sidebar-primary: oklch(0.6 0.25 300); /* Purple primary */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.95 0.08 45); /* Light orange accent */
+  --sidebar-accent: oklch(0.95 0.15 320); /* Light pink accent */
   --sidebar-accent-foreground: oklch(0.145 0 0);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.6 0.15 45); /* Orange ring */
+  --sidebar-ring: oklch(0.6 0.25 300); /* Purple ring */
 }
 
 .dark {
@@ -85,31 +85,31 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.7 0.12 45); /* Lighter orange for dark mode */
+  --primary: oklch(0.7 0.2 300); /* Lighter purple for dark mode */
   --primary-foreground: oklch(0.145 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.3 0.1 45); /* Darker orange accent */
+  --accent: oklch(0.3 0.15 320); /* Darker pink accent */
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.12 45); /* Orange ring for dark mode */
-  --chart-1: oklch(0.7 0.12 45); /* Orange */
-  --chart-2: oklch(0.8 0.1 45); /* Light orange */
-  --chart-3: oklch(0.6 0.15 45); /* Medium orange */
-  --chart-4: oklch(0.9 0.08 45); /* Very light orange */
-  --chart-5: oklch(0.5 0.18 45); /* Dark orange */
+  --ring: oklch(0.7 0.2 300); /* Purple ring for dark mode */
+  --chart-1: oklch(0.7 0.2 300); /* Purple */
+  --chart-2: oklch(0.8 0.15 320); /* Light pink */
+  --chart-3: oklch(0.6 0.25 300); /* Medium purple */
+  --chart-4: oklch(0.9 0.12 320); /* Very light pink */
+  --chart-5: oklch(0.5 0.3 300); /* Dark purple */
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.7 0.12 45); /* Orange primary */
+  --sidebar-primary: oklch(0.7 0.2 300); /* Purple primary */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.3 0.1 45); /* Dark orange accent */
+  --sidebar-accent: oklch(0.3 0.15 320); /* Dark pink accent */
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.7 0.12 45); /* Orange ring */
+  --sidebar-ring: oklch(0.7 0.2 300); /* Purple ring */
 }
 
 @layer base {
@@ -130,19 +130,19 @@
     min-width: 0 !important;
     flex: 1 !important;
   }
-  
+
   /* Ensure content takes full available width */
   .ant-layout-content {
     width: 100% !important;
     max-width: none !important;
     overflow-x: hidden;
   }
-  
+
   /* Fix sidebar layout */
   .sidebar-container {
     flex-shrink: 0;
   }
-  
+
   .main-content-container {
     flex: 1;
     min-width: 0;
@@ -154,56 +154,53 @@
 @layer components {
   /* Hide scrollbar for webkit browsers */
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
-  
+
   .scrollbar-hide::-webkit-scrollbar {
-    display: none;  /* Chrome, Safari and Opera */
+    display: none; /* Chrome, Safari and Opera */
   }
-  
+
   /* Custom scrollbar for sidebar */
   .sidebar-scroll::-webkit-scrollbar {
     width: 4px;
   }
-  
+
   .sidebar-scroll::-webkit-scrollbar-track {
     background: transparent;
   }
-  
+
   .sidebar-scroll::-webkit-scrollbar-thumb {
     background: rgba(156, 163, 175, 0.3);
     border-radius: 2px;
   }
-  
+
   .sidebar-scroll::-webkit-scrollbar-thumb:hover {
     background: rgba(156, 163, 175, 0.5);
   }
-  
+
   /* Menu item selection styles */
   .ant-menu-item-selected {
-    background: linear-gradient(135deg, #fed7aa 0%, #fdba74 100%) !important;
-    border-right: 3px solid #f97316 !important;
-    color: #ea580c !important;
-    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.15) !important;
+    background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%) !important;
+    border-right: 3px solid #a855f7 !important;
+    color: #7c3aed !important;
+    box-shadow: 0 2px 4px rgba(147, 51, 234, 0.15) !important;
   }
-  
+
   .ant-menu-item:hover {
-    background: rgba(249, 115, 22, 0.08) !important;
-    color: #ea580c !important;
+    background: rgba(147, 51, 234, 0.08) !important;
+    color: #7c3aed !important;
   }
-  
+
   /* Section header styles */
   .sidebar-section-header {
-    color: #ea580c;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     padding: 8px 12px;
     margin-bottom: 12px;
     border-radius: 8px;
-    background: rgba(254, 215, 170, 0.3);
-    border: 1px solid rgba(251, 146, 60, 0.3);
   }
 }
 
@@ -212,42 +209,42 @@
   .sidebar-transition {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .sidebar-slide-in {
     animation: slideInLeft 0.3s ease-out;
   }
-  
+
   .sidebar-slide-out {
     animation: slideOutLeft 0.3s ease-in;
   }
-  
+
   .sidebar-fade-in {
     animation: fadeIn 0.3s ease-out;
   }
-  
+
   .sidebar-scale-in {
     animation: scaleIn 0.2s ease-out;
   }
-  
+
   .sidebar-bounce {
     animation: bounce 0.6s ease-in-out;
   }
-  
+
   /* Hover effects for sidebar items */
   .sidebar-item-hover {
     transition: all 0.2s ease-in-out;
   }
-  
+
   .sidebar-item-hover:hover {
     transform: translateX(4px);
     background-color: rgba(59, 130, 246, 0.1);
   }
-  
+
   /* Progress bar animation */
   .progress-animate {
     animation: progressFill 1.5s ease-out;
   }
-  
+
   /* Logo animation */
   .logo-pulse {
     animation: logoPulse 2s ease-in-out infinite;
@@ -298,10 +295,15 @@
 }
 
 @keyframes bounce {
-  0%, 20%, 53%, 80%, 100% {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
     transform: translate3d(0, 0, 0);
   }
-  40%, 43% {
+  40%,
+  43% {
     transform: translate3d(0, -8px, 0);
   }
   70% {
@@ -322,7 +324,8 @@
 }
 
 @keyframes logoPulse {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -337,72 +340,72 @@
     @apply w-full px-4 sm:px-6 lg:px-8 mx-auto;
     max-width: 100%;
   }
-  
+
   /* Responsive text sizes */
   .text-responsive-xs {
     @apply text-xs sm:text-sm;
   }
-  
+
   .text-responsive-sm {
     @apply text-sm sm:text-base;
   }
-  
+
   .text-responsive-base {
     @apply text-base sm:text-lg;
   }
-  
+
   .text-responsive-lg {
     @apply text-lg sm:text-xl;
   }
-  
+
   .text-responsive-xl {
     @apply text-xl sm:text-2xl lg:text-3xl;
   }
-  
+
   /* Responsive spacing */
   .space-responsive {
     @apply space-y-4 sm:space-y-6 lg:space-y-8;
   }
-  
+
   .p-responsive {
     @apply p-4 sm:p-6 lg:p-8;
   }
-  
+
   .px-responsive {
     @apply px-4 sm:px-6 lg:px-8;
   }
-  
+
   .py-responsive {
     @apply py-4 sm:py-6 lg:py-8;
   }
-  
+
   /* Mobile-specific styles */
   @media (max-width: 640px) {
     .mobile-full-width {
       width: 100vw;
       margin-left: calc(-50vw + 50%);
     }
-    
+
     .mobile-padding {
       padding-left: 1rem;
       padding-right: 1rem;
     }
   }
-  
+
   /* Tablet-specific styles */
   @media (min-width: 641px) and (max-width: 1024px) {
     .tablet-center {
       text-align: center;
     }
   }
-  
+
   /* Desktop-specific styles */
   @media (min-width: 1025px) {
     .desktop-max-width {
       max-width: 1280px;
     }
   }
-  
+
   /* Touch-friendly buttons for mobile */
   @media (max-width: 768px) {
     .touch-friendly {
@@ -435,14 +438,19 @@
 }
 
 .ant-menu-inline-collapsed .ant-menu-item:hover {
-  background: rgba(249, 115, 22, 0.15) !important; /* Màu đậm hơn khi hover */
-  color: #ea580c !important;
+  background: rgba(147, 51, 234, 0.15) !important; /* Màu đậm hơn khi hover */
+  color: #7c3aed !important;
 }
 
 .ant-menu-inline-collapsed .ant-menu-item-selected {
-  background: rgba(249, 115, 22, 0.08) !important; /* Màu nhạt hơn khi selected */
-  color: #ea580c !important;
-  box-shadow: 0 1px 3px rgba(249, 115, 22, 0.1) !important;
+  background: rgba(
+    147,
+    51,
+    234,
+    0.08
+  ) !important; /* Màu nhạt hơn khi selected */
+  color: #7c3aed !important;
+  box-shadow: 0 1px 3px rgba(147, 51, 234, 0.1) !important;
 }
 
 .ant-menu-inline-collapsed .ant-menu-item .anticon {
@@ -514,31 +522,7 @@
   transition: transform 0.2s ease !important;
 }
 
-/* Tooltip for collapsed menu items */
-.ant-tooltip {
-  z-index: 1001 !important;
-}
-
-.ant-tooltip-inner {
-  background-color: #1f2937 !important;
-  color: white !important;
-  font-size: 12px !important;
-  padding: 6px 10px !important;
-  border-radius: 6px !important;
-  font-weight: 500 !important;
-}
-
-/* Fix tooltip positioning */
-.ant-tooltip-placement-right .ant-tooltip-arrow {
-  border-right-color: #1f2937 !important;
-}
-
-/* Ensure tooltip doesn't interfere with layout */
-.ant-tooltip-open {
-  pointer-events: none !important;
-}
-
-/* Fix menu item tooltip container */
+/* Fix menu item icon container */
 .ant-menu-inline-collapsed .ant-menu-item .anticon {
   font-size: 18px !important;
   margin: 0 !important;
@@ -551,15 +535,6 @@
   transform: translate(-50%, -50%) !important; /* Căn giữa chính xác */
   width: 100% !important;
   height: 100% !important;
-}
-
-/* Ensure tooltip container doesn't interfere with layout */
-.ant-menu-inline-collapsed .ant-menu-item .anticon > div {
-  width: 100% !important;
-  height: 100% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
 }
 
 /* Section headers - not selectable */
@@ -585,7 +560,7 @@
 
 /* Modern divider styling */
 .ant-divider {
-  border-color: #fed7aa !important;
+  border-color: #e9d5ff !important;
   opacity: 0.6 !important;
 }
 
