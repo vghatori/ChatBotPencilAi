@@ -202,3 +202,42 @@
     }
   }
 }
+.headContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px;
+  gap: 5px;
+}
+.bodyContainer{
+  display: grid;
+  grid-template-columns: 260 1fr;
+  grid-template-rows: auto;
+  gap: 5px;
+}
+.sidebarContainer {
+  flex-shrink: 0; 
+  width: 280px;
+  overflow-y: auto
+}
+.mainContent {
+  padding: 24px;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+.modalContainer {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+}
+.workspace-container {
+  display: grid;
+  grid-template-rows: auto 1fr; 
+  height: 100vh;
+  background-color: #f8f9fa;
+}
+html {
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
