@@ -1,11 +1,6 @@
-export { default as Sidebar } from './Sidebar';
-export { default as DashboardHeader } from './Header';
-export { default as TopBanner } from './TopBanner';
-export { default as TemplatesSection } from './TemplatesSection';
-export { default as GettingStartedSection } from './GettingStartedSection';
-export { default as NewFeaturesSection } from './NewFeaturesSection';
-export { default as DashboardContent } from './DashboardContent';
 export { default as ButtonBack } from './button-back';
 export { default as SearchBar } from './searchbar-channel';
-export { default as GridWorkspace } from './workspace-grid';
 export { default as WorkspaceModal } from './workspace-modal';
+export { default as WorkspaceSideBar } from './nav-sidebar';
+export { default as BarChat } from './bar-chat';
+export { default as WorkspaceChatSideBar } from './Workspace-chat-menu'

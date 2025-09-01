@@ -1,35 +1,29 @@
-'use client';
 
 import React from 'react';
-import "../globals.css";
-import WorkspaceSideBar from '@/components/nav-sidebar';
-import  WorkspaceModal  from '../../components/workspace-modal';
-import SearchBar from '../../components/searchbar-channel';
+import { WorkspaceSider, WorkspaceHeader, WorkspaceContent, WorkspaceFooter} from '@/components/Layout';
+import { Layout } from 'antd';
+import { WorkspaceSideBar, SearchBar, WorkspaceModal } from '@/components'
 
+//--------------------------------------------------------------------
 
 export default function WorkspaceLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <>
-      <div className = 'workspace'>
-          <div className='headContainer'>
+      <Layout>
+        <WorkspaceHeader>
             <SearchBar/>
-            <div className='modalContainer'>
-              <WorkspaceModal/>
-            </div>
-          </div>
-          <div className='bodyContainer'>
-            <div className='sidebarContainer'>
-              <WorkspaceSideBar/>
-            </div>
-            <div className='mainContent'>
-              {children}
-            </div>
-          </div>
-      </div>
+            <WorkspaceModal/>
+        </WorkspaceHeader>
+        <Layout>
+          <WorkspaceSider> <WorkspaceSideBar/> </WorkspaceSider>
+          <WorkspaceContent>{children}</WorkspaceContent>
+        </Layout>
+      </Layout>
     </>
   );
 }

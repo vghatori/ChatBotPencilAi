@@ -3,9 +3,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useRouter, usePathname } from 'next/navigation';
 import { mockChannels, Channel } from '@/_mock/social-platforms';
-import styles from './workspace.module.css';
+import dynamic from 'next/dynamic';
 
-
+//--------------------------------------------------------------------
+const WorkspaceChatSideBar = dynamic(
+  () => import('@/components/Workspace-chat-menu').then(mod => mod.default),
+  { ssr: false }
+);
 export default function WorkspacePage() {
   const params = useParams();
   const router = useRouter();
@@ -26,32 +30,16 @@ export default function WorkspacePage() {
     }
   }, [pathname]);
 
-  const handleSelectChannel = (channel: Channel) => {
-    router.push(`/workspace/${workspaceAlias}/chat/${channel.id}`);
-  };
+  const handleMenuClick = ({ key }: { key: string }) => {
+    router.push(`/workspace/${workspaceAlias}/chat/${key}`);
+};
 
   return (
-    <div className={styles.container}>
-      <div className={styles.sidebar}>
-        <div>
-          {mockChannels.map((channel) => {
-            const isActive = activeChannel?.id === channel.id;
-            const channelClassName = `${styles.channelItem} ${isActive ? styles.active : ''}`;
-            return (
-              <div
-                key={channel.id}
-                onClick={() => handleSelectChannel(channel)}
-                className={channelClassName.trim()}
-              >
-                {channel.icon}
-                <span>{channel.name}</span>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-      <div className={styles.mainContent}>
-      </div>
-    </div>
+    <>
+      <WorkspaceChatSideBar
+        onMenuClick={handleMenuClick}
+        selectedChannelId={activeChannel?.id}
+      />
+     </>
   );
 }

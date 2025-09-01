@@ -1,39 +1,59 @@
 'use client';
 
-import React from 'react';
-import { Anchor } from 'antd';
-import styles from "../app/WorkspaceSideBar.module.css";
-const handleClick = (
-  e: React.MouseEvent<HTMLElement>,
-  link: {
-    title: React.ReactNode;
-    href: string;
+import React, { useState } from 'react';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
+
+
+//--------------------------------------------------------------------
+
+type MenuItem = Required<MenuProps>['items'][number];
+
+//--------------------------------------------------------------------
+
+const items: MenuItem[] = [
+  {
+    label: 'Manage Channels',
+    key: 'Manage Channels',
+    type: 'group',
+    children: [
+      {
+        key: 'Merged Channels',
+        label: 'Merged Channels',
+      },
+      {
+        key: 'All Channels',
+        label: 'All Channels',
+      },
+    ],
   },
-) => {
-  e.preventDefault();
-  console.log(link);
+];
+
+//--------------------------------------------------------------------
+
+const WorkspaceSideBar = () => {
+  const [current, setCurrent] = useState('mail');
+
+  const onClick: MenuProps['onClick'] = (e) => {
+    console.log('click ', e);
+    setCurrent(e.key);
+  };
+  return (
+    <>
+      <Menu
+        style={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          background: `#ffffff` 
+        }}
+        onClick={onClick} 
+        selectedKeys={[current]} 
+        mode="vertical" 
+        items={items} 
+      />;
+    </>
+  )
 };
-
-const WorkspaceSideBar: React.FC = () => (
-  <div className={styles.customAnchor}>
-    <Anchor
-      affix={false}
-      onClick={handleClick}
-      items={[
-        {
-          key: '1',
-          href: '#merged-channels',
-          title: 'Merged Channels',
-        },
-        {
-          key: '2',
-          href: '#merged-channels',
-          title: 'All Channels',
-        },
-      ]}
-    />
-
-  </div>
-);
 
 export default WorkspaceSideBar;

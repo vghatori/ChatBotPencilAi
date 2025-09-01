@@ -5,18 +5,27 @@ import { Button } from 'antd';
 import { useRouter } from 'next/navigation';
 import { LeftOutlined } from '@ant-design/icons';
 
-const ButtonBack: React.FC = () => {
+interface ButtonBackProps {
+  href?: string;
+  children?: React.ReactNode;
+}
+
+const ButtonBack: React.FC<ButtonBackProps> = ({ href, children }) => {
   const router = useRouter(); 
   
-  const handleGoBack = () => {
-    router.back();
+  const handleClick = () => {
+    if (href) {
+      router.push(href);
+    } else {
+      router.back();
+    }
   };
   return (
     <Button 
       icon={<LeftOutlined />} 
-      onClick={handleGoBack}
+      onClick={handleClick}
     >
-      Quay lại
+      {children || 'Quay lại'}
     </Button>
   );
 };
