@@ -1,4 +1,4 @@
-import userService, { SignInReq } from "@/api/services/userService";
+import userService, { SignInReq } from "@/core/api/services/userService";
 import { useMutation } from "@tanstack/react-query";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";

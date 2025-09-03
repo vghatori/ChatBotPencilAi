@@ -118,6 +118,14 @@
   }
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F9F4FC 100%);
+    min-height: 100vh;
+  }
+  
+  /* Global background for all pages */
+  html {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F9F4FC 100%);
+    min-height: 100vh;
   }
 }
 
@@ -183,7 +191,6 @@
   /* Menu item selection styles */
   .ant-menu-item-selected {
     background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%) !important;
-    border-right: 3px solid #a855f7 !important;
     color: #7c3aed !important;
     box-shadow: 0 2px 4px rgba(147, 51, 234, 0.15) !important;
   }
@@ -204,132 +211,394 @@
   }
 }
 
-/* Sidebar Animations */
+/* ===== SIDEBAR TOOLTIPS ===== */
+.sidebar-tooltip {
+  animation: tooltipFadeIn 0.2s ease-out forwards;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(75, 85, 99, 0.3) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Tooltip animations */
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Tooltip positioning improvements */
+.sidebar-tooltip {
+  max-width: 250px !important;
+  word-wrap: break-word !important;
+  white-space: normal !important;
+  line-height: 1.4 !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+/* Tooltip arrow improvements */
+.sidebar-tooltip .w-2.h-2 {
+  border-color: rgba(75, 85, 99, 0.3) !important;
+}
+
+/* Hover effects for tooltip triggers */
+.sidebar-tooltip-trigger {
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar-tooltip-trigger:hover {
+  transform: scale(1.02);
+}
+
+/* ===== SIDEBAR CONTENT VISIBILITY FIXES ===== */
+/* Ensure all sidebar content is visible by default */
+.sidebar-main,
+.sidebar-content-fade-in,
+.sidebar-section-header-animate,
+.sidebar-menu-item-enter {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure menu items are visible */
+.ant-menu-item {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure section headers are visible */
+.sidebar-section-header {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+/* Ensure all text content is visible */
+.sidebar-main *,
+.sidebar-content-fade-in *,
+.sidebar-section-header-animate * {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ===== COLLAPSED SIDEBAR LAYOUT FIXES ===== */
+/* Ensure collapsed sidebar has proper width and centering */
+.ant-layout-sider-collapsed {
+  width: 80px !important;
+  min-width: 80px !important;
+  max-width: 80px !important;
+}
+
+/* Center all content in collapsed sidebar */
+.ant-layout-sider-collapsed .ant-layout-sider-children {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Fix collapsed menu container */
+.ant-menu.ant-menu-inline-collapsed {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+
+/* Fix collapsed menu list */
+.ant-menu.ant-menu-inline-collapsed .ant-menu-list {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  padding: 0 !important;
+}
+
+/* Fix collapsed menu items - CENTERED AND STABLE */
+.ant-menu-inline-collapsed .ant-menu-item {
+  width: 48px !important;
+  height: 48px !important;
+  margin: 4px auto !important; /* Center with auto margins */
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  position: relative !important;
+  /* Remove any transforms that could cause positioning issues */
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+}
+
+/* Fix collapsed menu item icons */
+.ant-menu-inline-collapsed .ant-menu-item .anticon {
+  font-size: 18px !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fix collapsed menu item spans */
+.ant-menu-inline-collapsed .ant-menu-item > span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Ensure collapsed sidebar footer is centered */
+.ant-layout-sider-collapsed .ant-layout-sider-children > div:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* ===== COLLAPSED MENU ITEM SELECTION FIXES ===== */
+/* Ensure collapsed menu items don't move when selected */
+.ant-menu-inline-collapsed .ant-menu-item-selected {
+  transform: none !important;
+  margin: 4px auto !important;
+  background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%) !important;
+  color: #7c3aed !important;
+  box-shadow: 0 2px 4px rgba(147, 51, 234, 0.15) !important;
+}
+
+/* Ensure collapsed menu items don't move on hover */
+.ant-menu-inline-collapsed .ant-menu-item:hover {
+  transform: scale(1.05) !important;
+  margin: 4px auto !important;
+}
+
+/* Ensure collapsed menu items maintain position in all states */
+.ant-menu-inline-collapsed .ant-menu-item,
+.ant-menu-inline-collapsed .ant-menu-item:hover,
+.ant-menu-inline-collapsed .ant-menu-item-selected {
+  position: relative !important;
+  left: auto !important;
+  right: auto !important;
+  top: auto !important;
+  bottom: auto !important;
+}
+
+/* ===== NEW MODERN SIDEBAR ANIMATIONS ===== */
 @layer components {
+  /* Base transition system */
   .sidebar-transition {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .sidebar-slide-in {
-    animation: slideInLeft 0.3s ease-out;
+  .sidebar-transition-fast {
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .sidebar-slide-out {
-    animation: slideOutLeft 0.3s ease-in;
+  .sidebar-transition-slow {
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .sidebar-fade-in {
-    animation: fadeIn 0.3s ease-out;
+  /* Sidebar width animation */
+  .sidebar-width-animate {
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .sidebar-scale-in {
-    animation: scaleIn 0.2s ease-out;
-  }
-
-  .sidebar-bounce {
-    animation: bounce 0.6s ease-in-out;
-  }
-
-  /* Hover effects for sidebar items */
-  .sidebar-item-hover {
-    transition: all 0.2s ease-in-out;
-  }
-
-  .sidebar-item-hover:hover {
-    transform: translateX(4px);
-    background-color: rgba(59, 130, 246, 0.1);
-  }
-
-  /* Progress bar animation */
-  .progress-animate {
-    animation: progressFill 1.5s ease-out;
-  }
-
-  /* Logo animation */
-  .logo-pulse {
-    animation: logoPulse 2s ease-in-out infinite;
-  }
-}
-
-/* Keyframe Animations */
-@keyframes slideInLeft {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
+  /* Content fade animations - FIXED to ensure content is visible */
+  .sidebar-content-fade-in {
+    animation: sidebarContentFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
+    /* Ensure content is visible by default */
+    opacity: 1;
     transform: translateX(0);
+    filter: blur(0);
+  }
+
+  .sidebar-content-fade-out {
+    animation: sidebarContentFadeOut 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
+  }
+
+  /* Logo animations */
+  .sidebar-logo-float {
+    animation: sidebarLogoFloat 3s ease-in-out infinite;
+  }
+
+  .sidebar-logo-glow {
+    animation: sidebarLogoGlow 2s ease-in-out infinite alternate;
+  }
+
+  /* Menu item animations - FIXED to ensure content is visible */
+  .sidebar-menu-item-enter {
+    /* Remove problematic animation that hides content */
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  .sidebar-menu-item-hover {
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .sidebar-menu-item-hover:hover {
+    transform: translateX(6px) scale(1.02);
+    background: linear-gradient(
+      135deg,
+      rgba(147, 51, 234, 0.1) 0%,
+      rgba(236, 72, 153, 0.1) 100%
+    );
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.15);
+  }
+
+  /* Progress bar animations */
+  .sidebar-progress-animate {
+    animation: sidebarProgressFill 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+      forwards;
+  }
+
+  /* User profile animations */
+  .sidebar-user-profile-hover {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .sidebar-user-profile-hover:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.2);
+  }
+
+  /* Section header animations - FIXED to ensure content is visible */
+  .sidebar-section-header-animate {
+    animation: sidebarSectionHeaderSlide 0.5s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    /* Ensure content is visible by default */
     opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Toggle button animations */
+  .sidebar-toggle-button {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .sidebar-toggle-button:hover {
+    transform: rotate(180deg) scale(1.1);
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(147, 51, 234, 0.3);
+  }
+
+  /* Staggered animation delays for menu items */
+  .sidebar-stagger-1 {
+    animation-delay: 0.1s;
+  }
+  .sidebar-stagger-2 {
+    animation-delay: 0.2s;
+  }
+  .sidebar-stagger-3 {
+    animation-delay: 0.3s;
+  }
+  .sidebar-stagger-4 {
+    animation-delay: 0.4s;
+  }
+  .sidebar-stagger-5 {
+    animation-delay: 0.5s;
   }
 }
 
-@keyframes slideOutLeft {
+/* ===== NEW KEYFRAME ANIMATIONS ===== */
+@keyframes sidebarContentFadeIn {
   from {
-    transform: translateX(0);
-    opacity: 1;
+    opacity: 0;
+    transform: translateX(-20px) scale(0.95);
+    filter: blur(2px);
   }
   to {
-    transform: translateX(-100%);
-    opacity: 0;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
   }
 }
 
-@keyframes fadeIn {
+@keyframes sidebarContentFadeOut {
   from {
-    opacity: 0;
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0);
   }
   to {
-    opacity: 1;
-  }
-}
-
-@keyframes scaleIn {
-  from {
-    transform: scale(0.9);
     opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
+    transform: translateX(-20px) scale(0.95);
+    filter: blur(2px);
   }
 }
 
-@keyframes bounce {
+@keyframes sidebarLogoFloat {
   0%,
-  20%,
-  53%,
-  80%,
   100% {
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0px);
   }
-  40%,
-  43% {
-    transform: translate3d(0, -8px, 0);
-  }
-  70% {
-    transform: translate3d(0, -4px, 0);
-  }
-  90% {
-    transform: translate3d(0, -2px, 0);
+  50% {
+    transform: translateY(-4px);
   }
 }
 
-@keyframes progressFill {
+@keyframes sidebarLogoGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(147, 51, 234, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.6),
+      0 0 30px rgba(236, 72, 153, 0.4);
+  }
+}
+
+@keyframes sidebarMenuItemEnter {
+  from {
+    opacity: 0;
+    transform: translateX(-30px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes sidebarProgressFill {
   from {
     width: 0%;
+    opacity: 0.5;
   }
   to {
     width: var(--progress-width, 75%);
+    opacity: 1;
   }
 }
 
-@keyframes logoPulse {
-  0%,
-  100% {
-    transform: scale(1);
+@keyframes sidebarSectionHeaderSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  50% {
-    transform: scale(1.05);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -435,6 +704,16 @@
   flex-direction: column !important;
   align-items: center !important;
   width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Fix menu list container */
+.ant-menu-inline-collapsed .ant-menu-list {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 0 !important;
 }
 
 .ant-menu-inline-collapsed .ant-menu-item:hover {
@@ -463,7 +742,124 @@
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%) !important; /* Căn giữa chính xác */
+  width: 100% !important;
+  height: 100% !important;
 }
+
+/* Fix menu item container */
+.ant-menu-inline-collapsed .ant-menu-item > span {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Fix Ant Design menu root container */
+.ant-menu.ant-menu-inline-collapsed {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+}
+
+/* Fix menu item wrapper */
+.ant-menu-inline-collapsed .ant-menu-item {
+  margin: 4px 0 !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* ===== NEW MENU ITEM ANIMATIONS ===== */
+.ant-menu-item {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  /* Remove the problematic animation that hides content */
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+}
+
+.ant-menu-item::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(
+    135deg,
+    rgba(147, 51, 234, 0.1) 0%,
+    rgba(236, 72, 153, 0.1) 100%
+  ) !important;
+  transition: left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  z-index: -1 !important;
+}
+
+.ant-menu-item:hover::before {
+  left: 0 !important;
+}
+
+.ant-menu-item:hover {
+  transform: translateX(6px) scale(1.02) !important;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.15) !important;
+}
+
+.ant-menu-item-selected {
+  background: linear-gradient(135deg, #e9d5ff 0%, #fce7f3 100%) !important;
+  color: #7c3aed !important;
+  box-shadow: 0 2px 4px rgba(147, 51, 234, 0.15) !important;
+  transform: translateX(4px) !important;
+}
+
+.ant-menu-item-selected::before {
+  left: 0 !important;
+}
+
+/* Remove the problematic entrance animation that hides content */
+/* .ant-menu-item {
+  animation: sidebarMenuItemEnter 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    forwards !important;
+  opacity: 0 !important;
+  transform: translateX(-20px) !important;
+} */
+
+/* Remove staggered delays that could cause issues */
+/* .ant-menu-item:nth-child(1) {
+  animation-delay: 0.1s !important;
+}
+.ant-menu-item:nth-child(2) {
+  animation-delay: 0.2s !important;
+}
+.ant-menu-item:nth-child(3) {
+  animation-delay: 0.3s !important;
+}
+.ant-menu-item:nth-child(4) {
+  animation-delay: 0.4s !important;
+}
+.ant-menu-item:nth-child(5) {
+  animation-delay: 0.5s !important;
+}
+.ant-menu-item:nth-child(6) {
+  animation-delay: 0.6s !important;
+}
+.ant-menu-item:nth-child(7) {
+  animation-delay: 0.7s !important;
+}
+.ant-menu-item:nth-child(8) {
+  animation-delay: 0.8s !important;
+}
+.ant-menu-item:nth-child(9) {
+  animation-delay: 0.9s !important;
+}
+.ant-menu-item:nth-child(10) {
+  animation-delay: 1s !important;
+}
+.ant-menu-item:nth-child(11) {
+  animation-delay: 1.1s !important;
+} */
 
 /* Collapsed sidebar specific styles */
 .ant-layout-sider-collapsed {
@@ -487,13 +883,17 @@
 /* Vertical progress bar animation */
 .vertical-progress {
   position: relative;
-  background: #fed7aa !important;
   border-radius: 5px !important;
 }
 
 .vertical-progress > div {
   border-radius: 5px !important;
-  animation: progressFillVertical 1.5s ease-out;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  background: linear-gradient(to-top, #a855f7, #ec4899) !important;
+  transition: height 0.5s ease-out !important;
 }
 
 @keyframes progressFillVertical {
@@ -564,23 +964,254 @@
   opacity: 0.6 !important;
 }
 
-/* Smooth transitions for sidebar elements */
-.sidebar-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+/* ===== COLLAPSED SIDEBAR HOVER LABELS ===== */
+/* Simple hover labels for collapsed menu items */
+.ant-menu-inline-collapsed .ant-menu-item {
+  position: relative !important;
 }
 
-/* Fade in animation for expanded content */
-.sidebar-fade-in {
-  animation: fadeIn 0.3s ease-in-out;
+/* Basic hover label structure */
+.ant-menu-inline-collapsed .ant-menu-item:hover::after {
+  content: "Test Label" !important;
+  position: absolute !important;
+  left: 100% !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: white !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  z-index: 9999 !important;
+  margin-left: 12px !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: all 0.2s ease-in-out !important;
+  pointer-events: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateX(-10px);
+/* Hover label for collapsed message usage */
+.message-usage-collapsed {
+  position: relative !important;
+}
+
+.message-usage-collapsed::after {
+  content: "Số lượng tin nhắn: 75%" !important;
+  position: absolute !important;
+  left: 100% !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: white !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  z-index: 9999 !important;
+  margin-left: 12px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.2s ease-in-out !important;
+  pointer-events: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.message-usage-collapsed:hover::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Hover label for collapsed user profile */
+.user-profile-collapsed {
+  position: relative !important;
+}
+
+.user-profile-collapsed::after {
+  content: "Dũng Rùa - Admin" !important;
+  position: absolute !important;
+  left: 100% !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: rgba(0, 0, 0, 0.9) !important;
+  color: white !important;
+  padding: 6px 10px !important;
+  border-radius: 6px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  z-index: 9999 !important;
+  margin-left: 12px !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 0.2s ease-in-out !important;
+  pointer-events: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+.user-profile-collapsed:hover::after {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* ===== CHAT INTERFACE ANIMATIONS ===== */
+@layer components {
+  /* AI Orb floating animation */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
   }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  /* Typewriter cursor animation */
+  .typewriter-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: #7c3aed;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Message bubble animations */
+  .message-enter {
+    animation: messageSlideIn 0.3s ease-out;
+  }
+
+  @keyframes messageSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Typing indicator animation */
+  .typing-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .typing-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #7c3aed;
+    animation: typingBounce 1.4s infinite ease-in-out;
+  }
+
+  .typing-dots span:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  .typing-dots span:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes typingBounce {
+    0%, 80%, 100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Gradient text animation */
+  .gradient-text {
+    background: linear-gradient(45deg, #7c3aed, #ec4899, #3b82f6);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Card hover animations */
+  .suggested-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .suggested-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(147, 51, 234, 0.15);
+  }
+
+  /* Input focus animation */
+  .chat-input {
+    transition: all 0.3s ease;
+  }
+
+  .chat-input:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 4px rgba(147, 51, 234, 0.1);
+  }
+
+  /* Category selection animation */
+  .category-button {
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .category-button::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #7c3aed, #ec4899);
+    transition: width 0.3s ease;
+  }
+
+  .category-button.active::after {
+    width: 100%;
+  }
+
+  /* Background orb animation */
+  .bg-orb {
+    animation: orbFloat 6s ease-in-out infinite;
+  }
+
+  @keyframes orbFloat {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1) rotate(0deg);
+    }
+    33% {
+      transform: translate(-50%, -50%) scale(1.1) rotate(120deg);
+    }
+    66% {
+      transform: translate(-50%, -50%) scale(0.9) rotate(240deg);
+    }
   }
 }

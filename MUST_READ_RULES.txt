@@ -1,0 +1,129 @@
+🚀 AI PENCIL PROJECT - MUST READ RULES 🚀
+==================================================
+
+📌 QUY TẮC BẮT BUỘC PHẢI TUÂN THỦ
+====================================
+
+1. 🏗️ PROJECT STRUCTURE (CẤU TRÚC DỰ ÁN)
+   ======================================
+   - Tuân thủ cấu trúc thư mục hiện tại
+   - Không được di chuyển hoặc xóa file components/sidebar/
+   - Mỗi component phải có 'use client' directive
+   - Sử dụng TypeScript interfaces cho tất cả props
+
+2. 🎨 DESIGN SYSTEM (HỆ THỐNG THIẾT KẾ)
+   ======================================
+   - Màu chủ đạo: Purple-Pink gradient (#a855f7 → #ec4899)
+   - Background: White (#ffffff)
+   - Text chính: Gray-800 (#1f2937)
+   - Border: Purple-100 (#f3e8ff)
+   - Shadow: Purple với opacity 0.1-0.15
+
+3. 📱 RESPONSIVE DESIGN (THIẾT KẾ ĐÁP ỨNG)
+   =========================================
+   - Mobile-first approach
+   - Breakpoints: sm (640px), md (768px), lg (1024px)
+   - Sidebar collapse ở < 1024px
+   - Touch-friendly buttons (min 44px)
+
+4. 🔧 COMPONENT RULES (QUY TẮC COMPONENT)
+   ======================================
+   - Mỗi file TSX không được vượt quá 200 dòng
+   - Sử dụng Ant Design components khi có thể
+   - Custom CSS classes phải có prefix rõ ràng
+   - Props interface phải có default values
+
+5. 📁 SIDEBAR COMPONENTS (COMPONENTS SIDEBAR)
+   ===========================================
+   - SidebarHeader: Logo, toggle button, branding
+   - SidebarNavigation: Menu items, sections
+   - MessageUsage: Progress bars, usage stats
+   - UserProfile: Avatar, user info
+   - SidebarFooter: Container cho bottom components
+
+6. 🎯 STATE MANAGEMENT (QUẢN LÝ TRẠNG THÁI)
+   =========================================
+   - Sử dụng React hooks (useState, useEffect)
+   - Collapsed state được quản lý ở main page
+   - Selected menu item được track trong Sidebar
+   - Hover states được quản lý locally
+
+7. 🎭 ANIMATIONS & TRANSITIONS (HIỆU ỨNG)
+   =======================================
+   - Sidebar transitions: 300ms cubic-bezier
+   - Hover effects: scale, color changes
+   - Fade-in animations cho expanded content
+   - Progress bar animations
+
+8. 🚫 KHÔNG ĐƯỢC LÀM (FORBIDDEN)
+   ================================
+   - Không sử dụng tooltips (đã bị xóa)
+   - Không hardcode colors (phải dùng CSS variables)
+   - Không tạo inline styles (trừ khi cần thiết)
+   - Không sử dụng any type trong TypeScript
+
+9. ✅ PHẢI LÀM (REQUIRED)
+   =======================
+   - Sử dụng Tailwind CSS classes
+   - Implement responsive breakpoints
+   - Maintain purple-pink theme consistency
+   - Follow component composition pattern
+
+10. 🔍 CODE QUALITY (CHẤT LƯỢNG CODE)
+    ===================================
+    - ESLint rules phải pass
+    - TypeScript strict mode
+    - Meaningful variable names
+    - Proper error handling
+    - Performance optimization
+
+11. 📚 IMPORT/EXPORT RULES (QUY TẮC IMPORT/EXPORT)
+    ===============================================
+    - Sử dụng named exports cho components
+    - Index files để re-export
+    - Relative paths cho local imports
+    - Absolute paths cho external packages
+
+12. 🎨 CSS CLASS NAMING (QUY TẮC ĐẶT TÊN CSS)
+    ===========================================
+    - Sidebar: sidebar-*
+    - Animations: *-animate, *-transition
+    - States: *-collapsed, *-expanded
+    - Colors: *-purple, *-pink
+    - Layout: *-container, *-wrapper
+
+13. 🚀 PERFORMANCE RULES (QUY TẮC HIỆU SUẤT)
+    ==========================================
+    - Lazy loading cho heavy components
+    - Memoization cho expensive calculations
+    - Debounce cho resize events
+    - Optimize re-renders
+
+14. 🧪 TESTING REQUIREMENTS (YÊU CẦU TESTING)
+    ===========================================
+    - Components phải render được
+    - Props changes phải update UI
+    - Responsive behavior phải hoạt động
+    - Accessibility phải đạt chuẩn
+
+15. 📱 MOBILE OPTIMIZATION (TỐI ƯU MOBILE)
+    =======================================
+    - Touch targets đủ lớn (44px+)
+    - Swipe gestures cho sidebar
+    - Mobile-first CSS
+    - Performance trên mobile devices
+
+==================================================
+⚠️  LƯU Ý QUAN TRỌNG:
+- Đọc kỹ trước khi code
+- Tuân thủ tất cả quy tắc
+- Không được bỏ qua bất kỳ rule nào
+- Hỏi team lead nếu có thắc mắc
+==================================================
+
+🎯 MỤC TIÊU: Tạo ra một dashboard AI Pencil đẹp, responsive, 
+    maintainable và có performance tốt với theme purple-pink 
+    gradient hiện đại!
+
+📅 Cập nhật lần cuối: [Ngày hiện tại]
+👥 Team: AI Pencil Development Team

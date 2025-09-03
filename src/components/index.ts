@@ -1,7 +1,11 @@
+// Shared UI Components (Reusable across features)
+export { default as Header } from './Header';
 export { default as Sidebar } from './Sidebar';
-export { default as DashboardHeader } from './Header';
 export { default as TopBanner } from './TopBanner';
-export { default as TemplatesSection } from './TemplatesSection';
-export { default as GettingStartedSection } from './GettingStartedSection';
-export { default as NewFeaturesSection } from './NewFeaturesSection';
-export { default as DashboardContent } from './DashboardContent';
+
+// Sidebar components (Reusable across features)
+export { default as SidebarHeader } from './sidebar/SidebarHeader';
+export { default as SidebarNavigation } from './sidebar/SidebarNavigation';
+export { default as SidebarFooter } from './sidebar/SidebarFooter';
+export { default as UserProfile } from './sidebar/UserProfile';
+export { default as MessageUsage } from './sidebar/MessageUsage';
