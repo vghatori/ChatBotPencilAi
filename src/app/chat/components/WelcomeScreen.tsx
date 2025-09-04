@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import WelcomeGreeting from "./WelcomeGreeting";
 import SuggestedActions from "./SuggestedActions";
 import CategoryButtons from "./CategoryButtons";
-import FloatingChatInput from "./FloatingChatInput";
+import ChatInput from "./ChatInput";
 
 interface WelcomeScreenProps {
   message: string;
@@ -36,12 +36,17 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
   }, []);
 
   return (
+<<<<<<< HEAD
     <div className="relative h-full max-h-full flex flex-col">
+=======
+    <div className="relative min-h-screen flex flex-col">
+>>>>>>> 9b979c2b9032a28c0c67450d793b29a01e0542c8
       {/* AI Orb Background */}
       <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-0">
         <div className="w-32 h-32 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 rounded-full opacity-20 blur-3xl bg-orb"></div>
       </div>
 
+<<<<<<< HEAD
       <div className="relative z-10 flex-1 flex flex-col justify-center pb-32 min-h-0">
         {/* Welcome Section */}
         <div className="text-center py-16 px-4">
@@ -52,6 +57,15 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
                 : "opacity-0 translate-y-8"
             }`}
           >
+=======
+      {/* Main Content */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center px-4 py-8 2xl:py-16 xl:py-12">
+        {/* Welcome Section */}
+        <div className="text-center w-full">
+          <div className={`transition-all duration-1000 delay-200 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+>>>>>>> 9b979c2b9032a28c0c67450d793b29a01e0542c8
             <WelcomeGreeting />
           </div>
 
@@ -80,7 +94,28 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* Chat Input is now rendered at page level */}
+=======
+      {/* Chat Input - Integrated at bottom */}
+      <div className="relative z-10 px-4 pb-4 sm:pb-8 2xl:pb-12 xl:pb-10">
+        <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-2xl'}`}>
+          <div className={`transition-all duration-1000 delay-800 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <ChatInput
+              message={message}
+              setMessage={setMessage}
+              onSendMessage={onSendMessage}
+              onKeyPress={onKeyPress}
+              collapsed={collapsed}
+              isMobile={isMobile}
+              isWelcome={true}
+            />
+          </div>
+        </div>
+      </div>
+>>>>>>> 9b979c2b9032a28c0c67450d793b29a01e0542c8
     </div>
   );
 };

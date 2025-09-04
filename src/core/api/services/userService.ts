@@ -14,13 +14,15 @@ export enum UserApi {
 };
 
 const signin = async (data : SignInReq) => {
-    const response: any = await apiClient.post<SignInRes>({ url : UserApi.SignIn, data});
-    if (response.status === 200) {
-        return response.data;
+    const response: unknown = await apiClient.post<SignInRes>({ url : UserApi.SignIn, data});
+    if (response && typeof response === 'object' && 'status' in response && response.status === 200 && 'data' in response) {
+        return (response as { data: SignInRes }).data;
     }
     return null;
 };
 
-export default {
+const userService = {
     signin,
 };
+
+export default userService;

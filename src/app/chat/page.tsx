@@ -8,16 +8,16 @@ import {
   TransitionWrapper,
   FloatingChatInput,
   useChatLogic,
-  type ChatMessage,
+  type ChatMessageType,
 } from "./components";
 
 export default function ChatPage() {
   const [showWelcome, setShowWelcome] = useState(true);
   const [currentCategory, setCurrentCategory] = useState("General");
-  const [chatHistory, setChatHistory] = useState<ChatMessage[]>([]);
+  const [chatHistory, setChatHistory] = useState<ChatMessageType[]>([]);
   const [isTyping, setIsTyping] = useState(false);
 
-  const handleChatHistoryChange = useCallback((history: ChatMessage[]) => {
+  const handleChatHistoryChange = useCallback((history: ChatMessageType[]) => {
     setChatHistory(history);
   }, []);
 
