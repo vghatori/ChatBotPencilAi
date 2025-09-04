@@ -119,9 +119,22 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Tùy chỉnh cấu trúc cho Dropdown Menu của Ant Design */
+  .ant-dropdown-menu {
+    padding: 4px 0 !important;
+  }
+
+  .ant-dropdown-menu-item {
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+  }
+
+  .ant-dropdown-menu-item:hover {
+    background: rgba(0, 0, 0, 0.04) !important;
+  }
 }
 
-/* Responsive Utilities */
 @layer utilities {
   /* Mobile-first responsive design */
   .container-responsive {
@@ -164,10 +177,9 @@
   }
   
   .py-responsive {
-    @apply py-4 sm:py-6 lg:py-8;
+    @apply py-4 sm:py-6 lg:p-8;
   }
   
-  /* Mobile-specific styles */
   @media (max-width: 640px) {
     .mobile-full-width {
       width: 100vw;
@@ -194,7 +206,6 @@
     }
   }
   
-  /* Touch-friendly buttons for mobile */
   @media (max-width: 768px) {
     .touch-friendly {
       min-height: 44px;
