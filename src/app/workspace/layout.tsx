@@ -2,7 +2,7 @@
 import React from 'react';
 import { WorkspaceSider, WorkspaceHeader, WorkspaceContent, WorkspaceFooter} from '@/components/Layout';
 import { Layout } from 'antd';
-import { WorkspaceSideBar, SearchBar, WorkspaceModal } from '@/components'
+import { WorkspaceSideBar, SearchBar, WorkspaceModal } from '@/components/Workspace'
 
 //--------------------------------------------------------------------
 

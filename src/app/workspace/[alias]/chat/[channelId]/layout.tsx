@@ -5,10 +5,10 @@ import { WorkspaceSider, WorkspaceContent, WorkspaceHeader } from '@/components/
 import { Layout } from 'antd';
 import dynamic from 'next/dynamic';
 import { usePathname, useParams, useRouter } from 'next/navigation';
-import { ButtonBack} from '@/components';
+import { ButtonBack} from '@/components/Workspace';
 
 const WorkspaceChatSideBar = dynamic(
-  () => import('@/components/Workspace-chat-menu'),
+  () => import('@/components/Workspace/Workspace-chat-menu'),
   { ssr: false }
 );
 

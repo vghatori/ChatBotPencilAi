@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useParams } from 'next/navigation';
-import { BarChat } from '@/components';
+import { BarChat } from '@/components/Workspace';
 import { useChat } from '../../../../hooks/useChat';
 import { useAutoScroll } from '../../../../hooks/useScrollChat';
 

@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 
 //--------------------------------------------------------------------
 const WorkspaceChatSideBar = dynamic(
-  () => import('@/components/Workspace-chat-menu').then(mod => mod.default),
+  () => import('@/components/Workspace/Workspace-chat-menu').then(mod => mod.default),
   { ssr: false }
 );
 export default function WorkspacePage() {
