@@ -1,10 +1,10 @@
 import userService, { SignInReq } from "@/core/api/services/userService";
 import { useMutation } from "@tanstack/react-query";
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 
 export const useSignIn = () => {
-    const navigatge = useNavigate();
+    const router = useRouter();
     // const { setUserToken, setUserInfo } = useUserActions();
   
     const signInMutation = useMutation({
@@ -23,7 +23,7 @@ export const useSignIn = () => {
         };
         // setUserToken({ accessToken: token });
         // setUserInfo(user);
-        navigatge('/homepage', { replace: true });
+        router.push('/homepage');
       } catch (err : any) {
         message.warning({
           content: err.message,
