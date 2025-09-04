@@ -23,9 +23,6 @@ const ImageBox: React.FC<ImageBoxProps> = ({ imageUrl, alt }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg my-4 border border-gray-200">
       <div className="p-4">
-<<<<<<< HEAD
-        <img src={imageUrl} alt={alt} className="w-full h-auto rounded-lg" />
-=======
         <Image 
           src={imageUrl} 
           alt={alt}
@@ -33,7 +30,6 @@ const ImageBox: React.FC<ImageBoxProps> = ({ imageUrl, alt }) => {
           height={600}
           className="w-full h-auto rounded-lg"
         />
->>>>>>> 9b979c2b9032a28c0c67450d793b29a01e0542c8
       </div>
       <div className="flex items-center justify-between bg-gray-50 px-4 py-3 border-t border-gray-200">
         <span className="text-gray-600 text-sm">Generated Image</span>

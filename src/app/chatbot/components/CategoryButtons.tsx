@@ -9,7 +9,7 @@ interface CategoryButtonsProps {
 
 const CategoryButtons: React.FC<CategoryButtonsProps> = ({
   currentCategory,
-  setCurrentCategory
+  setCurrentCategory,
 }) => {
   const categories = ["General", "Text", "Media", "Music", "Analytics"];
 

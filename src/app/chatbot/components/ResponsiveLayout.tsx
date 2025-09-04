@@ -26,16 +26,19 @@ export default function ResponsiveLayout({
     const checkMobile = () => {
       const width = window.innerWidth;
       const mobile = width < 1024;
-      const isLargeScreen = width >= 1920; // Full HD and above
-      
+      const tablet = width >= 640 && width < 1024;
+
       setIsMobile(mobile);
 
       if (mobile) {
         setCollapsed(true);
         setMobileOpen(false);
+      } else if (tablet) {
+        // For tablets, start with collapsed sidebar
+        setCollapsed(true);
+        setMobileOpen(false);
       } else {
-        // For large screens, keep sidebar collapsed by default to save space
-        // User can manually expand if needed
+        // For desktop, start with collapsed sidebar to save space
         setCollapsed(true);
         setMobileOpen(false);
       }
@@ -84,7 +87,7 @@ export default function ResponsiveLayout({
               transition: "left 0.3s ease",
             }}
           >
-            <div className="w-full max-w-none 2xl:max-w-[1400px] xl:max-w-[1200px] lg:max-w-[1000px] mx-auto">
+            <div className="w-full max-w-none 2xl:max-w-[1600px] xl:max-w-[1400px] lg:max-w-[1200px] md:max-w-[1000px] mx-auto">
               <Header
                 pageTitle={pageTitle}
                 notificationCount={notificationCount}
@@ -94,7 +97,7 @@ export default function ResponsiveLayout({
             </div>
           </div>
         ) : (
-          <div className="w-full max-w-none 2xl:max-w-[1400px] xl:max-w-[1200px] lg:max-w-[1000px] mx-auto">
+          <div className="w-full max-w-none 2xl:max-w-[1600px] xl:max-w-[1400px] lg:max-w-[1200px] md:max-w-[1000px] mx-auto">
             <Header
               pageTitle={pageTitle}
               notificationCount={notificationCount}
@@ -106,20 +109,16 @@ export default function ResponsiveLayout({
 
         {/* Main Content */}
         <div
-<<<<<<< HEAD
           className={`flex-1 relative overflow-hidden ${
-=======
-          className={`flex-1 relative min-h-screen ${
->>>>>>> 9b979c2b9032a28c0c67450d793b29a01e0542c8
             isFixedHeader ? "pt-16" : ""
           }`}
           style={{
             background:
               "radial-gradient(ellipse at center bottom, #FFFFFF 0%, #F9F4FC 100%)",
-            maxHeight: isFixedHeader ? "calc(100vh - 64px)" : "100vh",
+            maxHeight: isFixedHeader ? "calc(100vh - 60px)" : "100vh",
           }}
         >
-          <div className="w-full max-w-none 2xl:max-w-[1400px] xl:max-w-[1200px] lg:max-w-[1000px] mx-auto h-full">
+          <div className="w-full max-w-none 2xl:max-w-[1600px] xl:max-w-[1400px] lg:max-w-[1200px] md:max-w-[1000px] mx-auto h-full px-2 sm:px-4 md:px-6 lg:px-8">
             {children}
           </div>
         </div>

@@ -28,10 +28,10 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
 }) => {
   if (type === 'user') {
     return (
-      <div className="flex justify-end">
-        <div className="max-w-2xl">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-2xl p-4 shadow-lg message-enter 2xl:p-6 xl:p-5">
-            <div className="text-sm leading-relaxed 2xl:text-base xl:text-sm">
+      <div className="flex justify-end mb-4 sm:mb-6">
+        <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl w-full">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-2xl p-3 sm:p-4 md:p-5 lg:p-6 shadow-lg message-enter">
+            <div className="text-xs sm:text-sm md:text-base leading-relaxed break-words">
               {content}
             </div>
           </div>
@@ -42,9 +42,9 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
 
   // AI message - no box, just text
   return (
-    <div className="flex justify-start">
-      <div className="max-w-2xl">
-        <div className="text-gray-800 text-sm leading-relaxed message-enter 2xl:text-base xl:text-sm">
+    <div className="flex justify-start mb-4 sm:mb-6">
+      <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl w-full">
+        <div className="text-gray-800 text-xs sm:text-sm md:text-base leading-relaxed message-enter break-words">
           {isTyping ? (
             <TypewriterText text={content} speed={30} />
           ) : (
@@ -54,12 +54,16 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
         
         {/* Code Box */}
         {code && language && (
-          <CodeBox code={code} language={language} />
+          <div className="mt-3 sm:mt-4">
+            <CodeBox code={code} language={language} />
+          </div>
         )}
         
         {/* Image Box */}
         {imageUrl && imageAlt && (
-          <ImageBox imageUrl={imageUrl} alt={imageAlt} />
+          <div className="mt-3 sm:mt-4">
+            <ImageBox imageUrl={imageUrl} alt={imageAlt} />
+          </div>
         )}
       </div>
     </div>

@@ -1311,7 +1311,7 @@
 
 /* Pulse animation for copy button */
 .code-copy-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1341,7 +1341,8 @@
 }
 
 @keyframes iconBounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {

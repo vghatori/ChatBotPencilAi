@@ -36,8 +36,8 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
   }, [chatHistory]);
 
   return (
-    <div className="h-full overflow-y-auto p-4 pb-32 scroll-smooth">
-      <div className="max-w-4xl mx-auto space-y-6">
+    <div className="h-full overflow-y-auto p-2 sm:p-4 md:p-6 lg:p-8 pb-20 sm:pb-24 md:pb-28 lg:pb-32 scroll-smooth">
+      <div className="max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto">
         {chatHistory.map((msg) => (
           <ChatMessage
             key={msg.id}
@@ -53,7 +53,7 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
           />
         ))}
         {isTyping && <TypingIndicator />}
-        <div ref={messagesEndRef} className="h-4" />
+        <div ref={messagesEndRef} className="h-2 sm:h-4" />
       </div>
     </div>
   );
