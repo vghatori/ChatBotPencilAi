@@ -30,16 +30,16 @@ const SuggestedActions: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12 2xl:gap-8 2xl:mb-16 xl:gap-7 xl:mb-14">
       {suggestedActions.map((action, index) => (
         <div
           key={index}
-          className="bg-white rounded-2xl p-6 shadow-lg suggested-card cursor-pointer border border-gray-100"
+          className="bg-white rounded-2xl p-6 shadow-lg suggested-card cursor-pointer border border-gray-100 2xl:p-8 2xl:rounded-3xl xl:p-7"
         >
-          <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${action.color} rounded-2xl flex items-center justify-center text-white`}>
+          <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${action.color} rounded-2xl flex items-center justify-center text-white 2xl:w-20 2xl:h-20 2xl:mb-6 2xl:rounded-3xl xl:w-18 xl:h-18 xl:mb-5`}>
             {action.icon}
           </div>
-          <Text className="text-gray-700 font-medium text-center block">
+          <Text className="text-gray-700 font-medium text-center block 2xl:text-lg xl:text-base">
             {action.title}
           </Text>
         </div>

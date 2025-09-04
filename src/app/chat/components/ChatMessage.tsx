@@ -30,8 +30,8 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
     return (
       <div className="flex justify-end">
         <div className="max-w-2xl">
-          <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-2xl p-4 shadow-lg message-enter">
-            <div className="text-sm leading-relaxed">
+          <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-2xl p-4 shadow-lg message-enter 2xl:p-6 xl:p-5">
+            <div className="text-sm leading-relaxed 2xl:text-base xl:text-sm">
               {content}
             </div>
           </div>
@@ -44,7 +44,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
   return (
     <div className="flex justify-start">
       <div className="max-w-2xl">
-        <div className="text-gray-800 text-sm leading-relaxed message-enter">
+        <div className="text-gray-800 text-sm leading-relaxed message-enter 2xl:text-base xl:text-sm">
           {isTyping ? (
             <TypewriterText text={content} speed={30} />
           ) : (
@@ -59,7 +59,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
         
         {/* Image Box */}
         {imageUrl && imageAlt && (
-          <ImageBox imageUrl={imageUrl} imageAlt={imageAlt} />
+          <ImageBox imageUrl={imageUrl} alt={imageAlt} />
         )}
       </div>
     </div>

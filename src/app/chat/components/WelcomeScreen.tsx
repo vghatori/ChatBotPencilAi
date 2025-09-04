@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import WelcomeGreeting from "./WelcomeGreeting";
 import SuggestedActions from "./SuggestedActions";
 import CategoryButtons from "./CategoryButtons";
-import FloatingChatInput from "./FloatingChatInput";
+import ChatInput from "./ChatInput";
 
 interface WelcomeScreenProps {
   message: string;
@@ -38,15 +38,16 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
   }, []);
 
   return (
-    <div className="relative max-h-screen flex flex-col">
+    <div className="relative min-h-screen flex flex-col">
       {/* AI Orb Background */}
       <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-0">
         <div className="w-32 h-32 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 rounded-full opacity-20 blur-3xl bg-orb"></div>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col justify-center pb-32">
+      {/* Main Content */}
+      <div className="relative z-10 flex-1 flex flex-col justify-center px-4 py-8 2xl:py-16 xl:py-12">
         {/* Welcome Section */}
-        <div className="text-center py-16 px-4">
+        <div className="text-center w-full">
           <div className={`transition-all duration-1000 delay-200 ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
@@ -70,16 +71,24 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
         </div>
       </div>
 
-      {/* Floating Chat Input - Always visible and fixed */}
-      <FloatingChatInput
-        message={message}
-        setMessage={setMessage}
-        onSendMessage={onSendMessage}
-        onKeyPress={onKeyPress}
-        collapsed={collapsed}
-        isMobile={isMobile}
-        isWelcome={true}
-      />
+      {/* Chat Input - Integrated at bottom */}
+      <div className="relative z-10 px-4 pb-4 sm:pb-8 2xl:pb-12 xl:pb-10">
+        <div className={`mx-auto ${isMobile ? 'max-w-full' : 'max-w-2xl'}`}>
+          <div className={`transition-all duration-1000 delay-800 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <ChatInput
+              message={message}
+              setMessage={setMessage}
+              onSendMessage={onSendMessage}
+              onKeyPress={onKeyPress}
+              collapsed={collapsed}
+              isMobile={isMobile}
+              isWelcome={true}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -24,14 +24,20 @@ export default function ResponsiveLayout({
   // Responsive breakpoint detection
   useEffect(() => {
     const checkMobile = () => {
-      const mobile = window.innerWidth < 1024;
+      const width = window.innerWidth;
+      const mobile = width < 1024;
+      const isLargeScreen = width >= 1920; // Full HD and above
+      
       setIsMobile(mobile);
 
       if (mobile) {
         setCollapsed(true);
         setMobileOpen(false);
       } else {
-        setCollapsed(false);
+        // For large screens, keep sidebar collapsed by default to save space
+        // User can manually expand if needed
+        setCollapsed(true);
+        setMobileOpen(false);
       }
     };
 
@@ -78,6 +84,17 @@ export default function ResponsiveLayout({
               transition: "left 0.3s ease",
             }}
           >
+            <div className="w-full max-w-none 2xl:max-w-[1400px] xl:max-w-[1200px] lg:max-w-[1000px] mx-auto">
+              <Header
+                pageTitle={pageTitle}
+                notificationCount={notificationCount}
+                onMenuClick={handleMobileMenu}
+                isMobile={isMobile}
+              />
+            </div>
+          </div>
+        ) : (
+          <div className="w-full max-w-none 2xl:max-w-[1400px] xl:max-w-[1200px] lg:max-w-[1000px] mx-auto">
             <Header
               pageTitle={pageTitle}
               notificationCount={notificationCount}
@@ -85,18 +102,11 @@ export default function ResponsiveLayout({
               isMobile={isMobile}
             />
           </div>
-        ) : (
-          <Header
-            pageTitle={pageTitle}
-            notificationCount={notificationCount}
-            onMenuClick={handleMobileMenu}
-            isMobile={isMobile}
-          />
         )}
 
         {/* Main Content */}
         <div
-          className={`flex-1 relative overflow-hidden min-h-screen ${
+          className={`flex-1 relative min-h-screen ${
             isFixedHeader ? "pt-16" : ""
           }`}
           style={{
@@ -104,7 +114,9 @@ export default function ResponsiveLayout({
               "radial-gradient(ellipse at center bottom, #FFFFFF 0%, #F9F4FC 100%)",
           }}
         >
-          {children}
+          <div className="w-full max-w-none 2xl:max-w-[1400px] xl:max-w-[1200px] lg:max-w-[1000px] mx-auto h-full">
+            {children}
+          </div>
         </div>
       </div>
 

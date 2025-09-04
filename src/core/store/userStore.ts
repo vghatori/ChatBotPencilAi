@@ -1,32 +1,37 @@
+"use client";
+
 import userService, { SignInReq } from "@/core/api/services/userService";
 import { useMutation } from "@tanstack/react-query";
 import { message } from "antd";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 
 export const useSignIn = () => {
-    const navigatge = useNavigate();
+    const router = useRouter();
     // const { setUserToken, setUserInfo } = useUserActions();
   
     const signInMutation = useMutation({
       mutationFn: userService.signin,
     });
   
-    const signIn = async (data: SignInReq) => {
+        const signIn = async (data: SignInReq) => {
       try {
-        const response: any = await signInMutation.mutateAsync(data);
-        const { email, id, name} = response; // cần thêm token, role_name để phân quyền
-  
-        const user: any = {
-          email,
-          id,
-          name,
-        };
-        // setUserToken({ accessToken: token });
-        // setUserInfo(user);
-        navigatge('/homepage', { replace: true });
-      } catch (err : any) {
+        const response: unknown = await signInMutation.mutateAsync(data);
+        if (response && typeof response === 'object' && 'email' in response && 'id' in response && 'name' in response) {
+          const { email, id, name } = response as { email: string; id: string; name: string };
+
+          // const user = {
+          //   email,
+          //   id,
+          //   name,
+          // };
+          // setUserToken({ accessToken: token });
+          // setUserInfo(user);
+          router.push('/dashboard');
+        }
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'An error occurred';
         message.warning({
-          content: err.message,
+          content: errorMessage,
           duration: 3,
         });
       }

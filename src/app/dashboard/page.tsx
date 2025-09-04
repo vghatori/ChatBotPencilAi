@@ -9,7 +9,6 @@ import {
   Col,
   Button,
   Typography,
-  Space,
 } from "antd";
 import {
   MessageOutlined,
@@ -17,7 +16,6 @@ import {
   SettingOutlined,
   UserOutlined,
   RocketOutlined,
-  BookOutlined,
 } from "@ant-design/icons";
 import { Sidebar, Header } from "@/components";
 import { DashboardContent, NewFeaturesSection } from "./components";

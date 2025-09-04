@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Button } from "antd";
 import { DownloadOutlined, EditOutlined } from "@ant-design/icons";
 
@@ -22,9 +23,11 @@ const ImageBox: React.FC<ImageBoxProps> = ({ imageUrl, alt }) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden shadow-lg my-4 border border-gray-200">
       <div className="p-4">
-        <img 
+        <Image 
           src={imageUrl} 
           alt={alt}
+          width={800}
+          height={600}
           className="w-full h-auto rounded-lg"
         />
       </div>
