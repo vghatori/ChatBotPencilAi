@@ -28,7 +28,9 @@ const TransitionWrapper: React.FC<TransitionWrapperProps> = ({
 
   return (
     <div className={`transition-all duration-500 ${
-      isTransitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+      isTransitioning 
+        ? 'opacity-0 scale-95 translate-y-8' 
+        : 'opacity-100 scale-100 translate-y-0'
     }`}>
       {children}
     </div>

@@ -2,7 +2,6 @@
 
 import React from "react";
 import ChatMessages from "./ChatMessages";
-import FloatingChatInput from "./FloatingChatInput";
 
 interface ChatMessage {
   id: number;
@@ -19,41 +18,18 @@ interface ChatMessage {
 interface ChatInterfaceProps {
   chatHistory: ChatMessage[];
   isTyping: boolean;
-  message: string;
-  setMessage: (message: string) => void;
-  onSendMessage: () => void;
-  onKeyPress: (e: React.KeyboardEvent) => void;
-  collapsed: boolean;
-  isMobile: boolean;
 }
 
 const ChatInterface: React.FC<ChatInterfaceProps> = ({
   chatHistory,
-  isTyping,
-  message,
-  setMessage,
-  onSendMessage,
-  onKeyPress,
-  collapsed,
-  isMobile
+  isTyping
 }) => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-full max-h-full">
       {/* Scrollable Chat Messages */}
-      <div className="flex-1 overflow-hidden pb-32">
+      <div className="flex-1 overflow-hidden min-h-0">
         <ChatMessages chatHistory={chatHistory} isTyping={isTyping} />
       </div>
-      
-      {/* Fixed Chat Input */}
-      <FloatingChatInput
-        message={message}
-        setMessage={setMessage}
-        onSendMessage={onSendMessage}
-        onKeyPress={onKeyPress}
-        collapsed={collapsed}
-        isMobile={isMobile}
-        isWelcome={false}
-      />
     </div>
   );
 };

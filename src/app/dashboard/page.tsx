@@ -1,23 +1,13 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Layout,
-  Drawer,
-  Card,
-  Row,
-  Col,
-  Button,
-  Typography,
-  Space,
-} from "antd";
+import { Layout, Drawer, Card, Row, Col, Button, Typography } from "antd";
 import {
   MessageOutlined,
   DashboardOutlined,
   SettingOutlined,
   UserOutlined,
   RocketOutlined,
-  BookOutlined,
 } from "@ant-design/icons";
 import { Sidebar, Header } from "@/components";
 import { DashboardContent, NewFeaturesSection } from "./components";

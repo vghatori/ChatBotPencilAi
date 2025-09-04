@@ -36,8 +36,8 @@ const ChatMessages: React.FC<ChatMessagesProps> = ({
   }, [chatHistory]);
 
   return (
-    <div className="h-full overflow-y-auto p-4 scroll-smooth">
-      <div className="max-w-4xl mx-auto space-y-6 min-h-full">
+    <div className="h-full overflow-y-auto p-4 pb-32 scroll-smooth">
+      <div className="max-w-4xl mx-auto space-y-6">
         {chatHistory.map((msg) => (
           <ChatMessage
             key={msg.id}

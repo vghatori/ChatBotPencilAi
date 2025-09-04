@@ -59,7 +59,7 @@ const ChatMessage: React.FC<ChatMessageProps> = ({
         
         {/* Image Box */}
         {imageUrl && imageAlt && (
-          <ImageBox imageUrl={imageUrl} imageAlt={imageAlt} />
+          <ImageBox imageUrl={imageUrl} alt={imageAlt} />
         )}
       </div>
     </div>

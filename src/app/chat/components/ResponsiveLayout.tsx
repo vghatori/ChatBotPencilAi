@@ -53,7 +53,7 @@ export default function ResponsiveLayout({
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="flex-1 flex overflow-hidden">
       {/* Responsive Sidebar */}
       <div className="hidden lg:block sidebar-container">
         <Sidebar
@@ -96,12 +96,13 @@ export default function ResponsiveLayout({
 
         {/* Main Content */}
         <div
-          className={`flex-1 relative overflow-hidden min-h-screen ${
+          className={`flex-1 relative overflow-hidden ${
             isFixedHeader ? "pt-16" : ""
           }`}
           style={{
             background:
               "radial-gradient(ellipse at center bottom, #FFFFFF 0%, #F9F4FC 100%)",
+            maxHeight: isFixedHeader ? "calc(100vh - 64px)" : "100vh",
           }}
         >
           {children}

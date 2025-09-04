@@ -118,13 +118,13 @@
   }
   body {
     @apply bg-background text-foreground;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F9F4FC 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f9f4fc 100%);
     min-height: 100vh;
   }
-  
+
   /* Global background for all pages */
   html {
-    background: linear-gradient(135deg, #FFFFFF 0%, #F9F4FC 100%);
+    background: linear-gradient(135deg, #ffffff 0%, #f9f4fc 100%);
     min-height: 100vh;
   }
 }
@@ -1065,7 +1065,8 @@
   }
 
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0px);
     }
     50% {
@@ -1075,14 +1076,20 @@
 
   /* Typewriter cursor animation */
   .typewriter-cursor::after {
-    content: '|';
+    content: "|";
     animation: blink 1s infinite;
     color: #7c3aed;
   }
 
   @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
   }
 
   /* Message bubble animations */
@@ -1125,7 +1132,9 @@
   }
 
   @keyframes typingBounce {
-    0%, 80%, 100% {
+    0%,
+    80%,
+    100% {
       transform: scale(0.8);
       opacity: 0.5;
     }
@@ -1184,7 +1193,7 @@
   }
 
   .category-button::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
@@ -1204,7 +1213,8 @@
   }
 
   @keyframes orbFloat {
-    0%, 100% {
+    0%,
+    100% {
       transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
     33% {
@@ -1213,5 +1223,128 @@
     66% {
       transform: translate(-50%, -50%) scale(0.9) rotate(240deg);
     }
+  }
+}
+
+/* ChatGPT-style composer classes */
+.composer-btn {
+  @apply transition-all duration-200 ease-in-out;
+}
+
+.shadow-short {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.vertical-scroll-fade-mask {
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20px,
+    black calc(100% - 20px),
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 20px,
+    black calc(100% - 20px),
+    transparent 100%
+  );
+}
+
+/* Code Box Copy Button Styling */
+.code-copy-btn {
+  color: #d1d5db !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  transform: scale(1) !important;
+}
+
+.code-copy-btn:hover {
+  color: #ffffff !important;
+  transform: scale(1.05) !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 6px !important;
+}
+
+.code-copy-btn:active {
+  transform: scale(0.95) !important;
+}
+
+.code-copy-btn .anticon {
+  color: inherit !important;
+  transition: all 0.3s ease !important;
+}
+
+.code-copy-btn:hover .anticon {
+  transform: scale(1.1) !important;
+}
+
+.code-copy-btn span {
+  color: inherit !important;
+  transition: all 0.3s ease !important;
+}
+
+/* Copy success animation */
+.code-copy-btn.copied {
+  color: #10b981 !important;
+  transform: scale(1.1) !important;
+  background: rgba(16, 185, 129, 0.1) !important;
+  border-radius: 6px !important;
+}
+
+.code-copy-btn.copied .anticon {
+  color: #10b981 !important;
+  animation: copySuccess 0.6s ease-in-out !important;
+}
+
+@keyframes copySuccess {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* Pulse animation for copy button */
+.code-copy-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.code-copy-btn:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Icon bounce animation */
+.code-copy-btn .anticon {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.code-copy-btn:hover .anticon {
+  animation: iconBounce 0.6s ease-in-out;
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-2px);
   }
 }

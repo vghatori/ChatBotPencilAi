@@ -8,7 +8,7 @@ export { default as TransitionWrapper } from './TransitionWrapper';
 // Sub Components
 export { default as TypewriterText } from './TypewriterText';
 export { default as ChatHeader } from './ChatHeader';
-export { default as ChatMessage } from './ChatMessage';
+export { default as ChatMessageComponent } from './ChatMessage';
 export { default as ChatMessages } from './ChatMessages';
 export { default as TypingIndicator } from './TypingIndicator';
 export { default as WelcomeGreeting } from './WelcomeGreeting';

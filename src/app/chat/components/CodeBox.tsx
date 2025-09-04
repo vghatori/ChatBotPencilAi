@@ -18,7 +18,7 @@ const CodeBox: React.FC<CodeBoxProps> = ({ code, language }) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy code:', err);
+      console.error("Failed to copy code:", err);
     }
   };
 
@@ -31,15 +31,16 @@ const CodeBox: React.FC<CodeBoxProps> = ({ code, language }) => {
           size="small"
           icon={copied ? <CheckOutlined /> : <CopyOutlined />}
           onClick={handleCopy}
-          className="text-gray-300 hover:text-white"
+          className={`text-gray-300 hover:text-white border-0 bg-transparent shadow-none code-copy-btn relative ${
+            copied ? "copied" : ""
+          }`}
+          style={{ color: "#d1d5db" }}
         >
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? "Copied!" : "Copy"}
         </Button>
       </div>
       <pre className="p-4 overflow-x-auto">
-        <code className="text-green-400 text-sm leading-relaxed">
-          {code}
-        </code>
+        <code className="text-green-400 text-sm leading-relaxed">{code}</code>
       </pre>
     </div>
   );

@@ -6,6 +6,7 @@ import {
   ChatInterface,
   ResponsiveLayout,
   TransitionWrapper,
+  FloatingChatInput,
   useChatLogic,
   type ChatMessage,
 } from "./components";
@@ -24,6 +25,11 @@ export default function ChatPage() {
     setIsTyping(typing);
   }, []);
 
+  const handleFileUpload = useCallback((file: File) => {
+    console.log('File uploaded:', file.name);
+    // TODO: Implement file upload logic
+  }, []);
+
   const { message, setMessage, handleSendMessage, handleKeyPress } =
     useChatLogic({
       showWelcome,
@@ -33,36 +39,42 @@ export default function ChatPage() {
     });
 
   return (
-    <ResponsiveLayout
-      pageTitle="Chat AI"
-      notificationCount={0}
-      isFixedHeader={!showWelcome}
-    >
-      <TransitionWrapper showWelcome={showWelcome}>
-        {showWelcome ? (
-          <WelcomeScreen
-            message={message}
-            setMessage={setMessage}
-            onSendMessage={handleSendMessage}
-            onKeyPress={handleKeyPress}
-            currentCategory={currentCategory}
-            setCurrentCategory={setCurrentCategory}
-            collapsed={false}
-            isMobile={false}
-          />
-        ) : (
-          <ChatInterface
-            chatHistory={chatHistory}
-            isTyping={isTyping}
-            message={message}
-            setMessage={setMessage}
-            onSendMessage={handleSendMessage}
-            onKeyPress={handleKeyPress}
-            collapsed={false}
-            isMobile={false}
-          />
-        )}
-      </TransitionWrapper>
-    </ResponsiveLayout>
+    <div className="h-screen flex flex-col">
+      <ResponsiveLayout
+        pageTitle="Chat AI"
+        notificationCount={0}
+        isFixedHeader={!showWelcome}
+      >
+        <TransitionWrapper showWelcome={showWelcome}>
+          {showWelcome ? (
+            <WelcomeScreen
+              message={message}
+              setMessage={setMessage}
+              onSendMessage={handleSendMessage}
+              onKeyPress={handleKeyPress}
+              currentCategory={currentCategory}
+              setCurrentCategory={setCurrentCategory}
+              collapsed={false}
+              isMobile={false}
+            />
+          ) : (
+            <ChatInterface
+              chatHistory={chatHistory}
+              isTyping={isTyping}
+            />
+          )}
+        </TransitionWrapper>
+      </ResponsiveLayout>
+      
+      {/* Chat Input - Fixed at bottom, outside ResponsiveLayout */}
+      <FloatingChatInput
+        message={message}
+        setMessage={setMessage}
+        onSendMessage={handleSendMessage}
+        onKeyPress={handleKeyPress}
+        isWelcome={showWelcome}
+        onUpload={handleFileUpload}
+      />
+    </div>
   );
 }

@@ -24,8 +24,6 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
   onKeyPress,
   currentCategory,
   setCurrentCategory,
-  collapsed,
-  isMobile
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -38,31 +36,43 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
   }, []);
 
   return (
-    <div className="relative max-h-screen flex flex-col">
+    <div className="relative h-full max-h-full flex flex-col">
       {/* AI Orb Background */}
       <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-0">
         <div className="w-32 h-32 bg-gradient-to-br from-purple-400 via-pink-400 to-blue-400 rounded-full opacity-20 blur-3xl bg-orb"></div>
       </div>
 
-      <div className="relative z-10 flex-1 flex flex-col justify-center pb-32">
+      <div className="relative z-10 flex-1 flex flex-col justify-center pb-32 min-h-0">
         {/* Welcome Section */}
         <div className="text-center py-16 px-4">
-          <div className={`transition-all duration-1000 delay-200 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+          <div
+            className={`transition-all duration-1000 delay-200 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <WelcomeGreeting />
           </div>
-          
-          <div className={`transition-all duration-1000 delay-400 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
+
+          <div
+            className={`transition-all duration-1000 delay-400 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <SuggestedActions />
           </div>
-          
-          <div className={`transition-all duration-1000 delay-600 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}>
-            <CategoryButtons 
+
+          <div
+            className={`transition-all duration-1000 delay-600 ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
+            <CategoryButtons
               currentCategory={currentCategory}
               setCurrentCategory={setCurrentCategory}
             />
@@ -70,16 +80,7 @@ const WelcomeScreen: React.FC<WelcomeScreenProps> = ({
         </div>
       </div>
 
-      {/* Floating Chat Input - Always visible and fixed */}
-      <FloatingChatInput
-        message={message}
-        setMessage={setMessage}
-        onSendMessage={onSendMessage}
-        onKeyPress={onKeyPress}
-        collapsed={collapsed}
-        isMobile={isMobile}
-        isWelcome={true}
-      />
+      {/* Chat Input is now rendered at page level */}
     </div>
   );
 };
